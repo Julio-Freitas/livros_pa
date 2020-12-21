@@ -1,0 +1,25 @@
+nav>ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    justify-content: center;
+}
+.form input {
+    outline: none;
+    margin: 5px 0;
+}
+
+.form input[type=submit]{
+    cursor: pointer;
+}
+.danger {
+    color: rebeccapurple;
+}
