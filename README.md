@@ -1,6 +1,6 @@
-# Controlers de livros
+# Controle de livros
 Exercitar os seguintes conceitos vistos em aula:
-    • Componentes reutilizáveis.
+    • Componentes reutilizáveis
     • Gerenciamento de estados.
 
 
