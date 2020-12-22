@@ -14,3 +14,8 @@ export const getConcluido = value => ({
   type: types.SET_CONCLUIDO,
   concluido: value
 });
+
+export const getAllLivro = value => ({
+  type: types.SET_ALL_LIVROS,
+  todosLivros: value
+});

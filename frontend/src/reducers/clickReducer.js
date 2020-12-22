@@ -2,7 +2,8 @@ import * as types from '../actions/actionTypes';
 const initialState = {
   lendo: [],
   queroLer: [],
-  concluido: []
+  concluido: [],
+  todosLivros: []
 };
 export const clickReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -20,6 +21,11 @@ export const clickReducer = (state = initialState, action) => {
       return {
         ...state,
         concluido: action.concluido
+      };
+    case types.SET_ALL_LIVROS:
+      return {
+        ...state,
+        todosLivros: action.todosLivros
       };
     default:
       return state;

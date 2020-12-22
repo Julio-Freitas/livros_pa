@@ -1,7 +1,12 @@
 import React from 'react';
 import Dropdown from '../dropdown';
 import * as Styled from './style';
-const CardLivro = ({ categoria, listagem, fallbackMoveCard = () => {} }) => {
+const CardLivro = ({
+  categoria,
+  listagem,
+  fallbackMoveCard = () => {},
+  dropdown = true
+}) => {
   return (
     <div className="container mb-5">
       <h1>{categoria}</h1>
@@ -18,11 +23,13 @@ const CardLivro = ({ categoria, listagem, fallbackMoveCard = () => {} }) => {
             />
             <Styled.Texto>{item.titulo}</Styled.Texto>
             <Styled.Texto>{item.autor}</Styled.Texto>
-            <Dropdown
-              fallbackClickCard={categoria =>
-                fallbackMoveCard({ item, categoria })
-              }
-            />
+            {dropdown && (
+              <Dropdown
+                fallbackClickCard={categoria =>
+                  fallbackMoveCard({ item, categoria })
+                }
+              />
+            )}
           </Styled.ContainerCardSingle>
         ))}
       </Styled.ContainerCard>

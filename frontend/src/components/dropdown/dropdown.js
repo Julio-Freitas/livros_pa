@@ -32,8 +32,8 @@ const Dropdown = ({ fallbackClickCard = () => {} }) => {
       </Styled.OpenContent>
 
       <Styled.ContainerContent openContent={open}>
-        {options.map(op => (
-          <Styled.Texto onClick={() => fallbackClickCard(op.value)}>
+        {options.map((op, index) => (
+          <Styled.Texto key={index} onClick={() => fallbackClickCard(op.value)}>
             {op.texto}
           </Styled.Texto>
         ))}

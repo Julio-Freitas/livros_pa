@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getQueroLer, getConcluido, getLendo } from '../actions';
 import axios from '../services/axios';
 import CardLivro from '../components/cardLivro';
+import * as Styled from './style';
 
 const Home = ({
   lendo,
@@ -13,6 +15,7 @@ const Home = ({
   getConcluido,
   getLendo
 }) => {
+  const history = useHistory();
   useEffect(() => {
     axios.get('/').then(resp => {
       const { data } = resp;
@@ -28,11 +31,12 @@ const Home = ({
           arrQueroLer.push(list);
         }
       });
+
       getLendo(arrLendo);
       getConcluido(arrConcluido);
       getQueroLer(arrQueroLer);
     });
-  }, []);
+  }, [getLendo, getConcluido, getQueroLer]);
   const _handleChangeItemLivro = obj => {
     const { item, categoria } = obj;
     let filterLendo = [...lendo];
@@ -62,25 +66,32 @@ const Home = ({
     }
   };
   return (
-    <div>
-      <CardLivro
-        categoria="Lendo Atualmente"
-        listagem={lendo}
-        fallbackMoveCard={objeto => _handleChangeItemLivro(objeto)}
-      />
-      <br />
-      <CardLivro
-        categoria="Quero Ler"
-        listagem={queroLer}
-        fallbackMoveCard={objeto => _handleChangeItemLivro(objeto)}
-      />
-      <br />
-      <CardLivro
-        categoria="Leitura Concluída"
-        listagem={concluido}
-        fallbackMoveCard={objeto => _handleChangeItemLivro(objeto)}
-      />
-    </div>
+    <>
+      <Styled.TitleHome>Lista de Leitura</Styled.TitleHome>
+      <div className="container">
+        <CardLivro
+          categoria="Lendo Atualmente"
+          listagem={lendo}
+          fallbackMoveCard={objeto => _handleChangeItemLivro(objeto)}
+        />
+        <br />
+        <CardLivro
+          categoria="Quero Ler"
+          listagem={queroLer}
+          fallbackMoveCard={objeto => _handleChangeItemLivro(objeto)}
+        />
+        <br />
+        <CardLivro
+          categoria="Leitura Concluída"
+          listagem={concluido}
+          fallbackMoveCard={objeto => _handleChangeItemLivro(objeto)}
+        />
+        <Styled.SearchContainer onClick={() => history.push('/search')}>
+          <i className="fa fa-search"></i>
+        </Styled.SearchContainer>
+        {console.log(lendo, concluido, queroLer)}
+      </div>
+    </>
   );
 };
 
