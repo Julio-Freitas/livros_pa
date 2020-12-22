@@ -19,6 +19,11 @@ export const ContainerCardSingle = styled.div`
 export const Texto = styled.span`
   display: inline-block;
   font-size: 14px;
+  span {
+    font-weight: bold;
+    font-size: 15px;
+    padding-right: 5px;
+  }
 `;
 
 export const Image = styled.img`

@@ -23,7 +23,8 @@ export const SearchContainer = styled.div`
 export const SearchHeader = styled.div`
   display: flex;
   justify-content: flex-start;
-  padding: 25px;
+  padding: 25px 25px 25px 190px;
+  margin-bottom: 25px;
   border-bottom: 1px #ccc solid;
   align-items: center;
   .fa-arrow-left {
@@ -38,9 +39,12 @@ export const SearchHeader = styled.div`
     width: 350px;
     border-radius: 3px;
     text-indent: 5px;
+    outline: none;
   }
   input::placeholder {
     font-size: 16px;
+    color: #ddd;
+    font-weight: bold;
   }
 `;
 

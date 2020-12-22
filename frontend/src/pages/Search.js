@@ -38,11 +38,11 @@ const Serach = ({ todosLivros, getAllLivro }) => {
     <>
       <Styled.SearchHeader>
         <i className="fa fa-arrow-left" onClick={() => history.push('/')} />
-        <Styled.TextSearch>Buscar Livros </Styled.TextSearch>
+        <Styled.TextSearch>Buscar Livros</Styled.TextSearch>
 
         <input
           type="text"
-          placeholder="Qual livro você está buscando"
+          placeholder="Digite o título do livro"
           value={searchLivro}
           onChange={e => setSearchLivro(e.target.value)}
         />

@@ -21,8 +21,14 @@ const CardLivro = ({
               }
               alt={item.titulo}
             />
-            <Styled.Texto>{item.titulo}</Styled.Texto>
-            <Styled.Texto>{item.autor}</Styled.Texto>
+            <Styled.Texto>
+              <span>Titulo:</span>
+              {item.titulo}
+            </Styled.Texto>
+            <Styled.Texto>
+              <span>Autor:</span>
+              {item.autor}
+            </Styled.Texto>
             {dropdown && (
               <Dropdown
                 fallbackClickCard={categoria =>
