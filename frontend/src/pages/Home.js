@@ -17,11 +17,11 @@ const Home = ({
 }) => {
   const history = useHistory();
   useEffect(() => {
-    axios.get('/').then(resp => {
-      const { data } = resp;
+    const _getInitalHome = async () => {
       const arrLendo = [];
       const arrQueroLer = [];
       const arrConcluido = [];
+      const { data } = await axios.get('/');
       data.forEach(list => {
         if (list.status === 'lendo') {
           arrLendo.push(list);
@@ -31,12 +31,13 @@ const Home = ({
           arrQueroLer.push(list);
         }
       });
-
       getLendo(arrLendo);
       getConcluido(arrConcluido);
       getQueroLer(arrQueroLer);
-    });
+    };
+    _getInitalHome();
   }, [getLendo, getConcluido, getQueroLer]);
+
   const _handleChangeItemLivro = obj => {
     const { item, categoria } = obj;
     let filterLendo = [...lendo];
