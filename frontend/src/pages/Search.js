@@ -8,7 +8,7 @@ import CardLivro from '../components/cardLivro';
 
 import * as Styled from './style';
 
-const Serach = ({ todosLivros, getAllLivro }) => {
+const Search = ({ todosLivros, getAllLivro }) => {
   const [searchLivro, setSearchLivro] = useState(null);
   const [resultSerach, setResultSerach] = useState([]);
   const history = useHistory();
@@ -69,4 +69,4 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ getAllLivro }, dispatch);
-export default connect(mapStateToProps, mapDispatchToProps)(Serach);
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
